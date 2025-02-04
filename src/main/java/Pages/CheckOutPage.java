@@ -184,7 +184,7 @@ public class CheckOutPage extends PageBase{
                                 RemoveProductItem.get(i).click();
                                 Thread.sleep(1000);
                             } catch (StaleElementReferenceException | InterruptedException e) {
-                                System.out.println("Retrying due to StaleElementReferenceException...");
+                                System.out.println("No products exist");
 
                             }
                         }
