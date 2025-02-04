@@ -5,12 +5,12 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
+import org.testng.Reporter;
+
 
 public class LoginPage extends PageBase{
     public LoginPage(WebDriver drive) {
@@ -29,13 +29,18 @@ public class LoginPage extends PageBase{
         WebElement SignInHoverIcon= driver.findElement(SignInHover);
         actions.moveToElement(SignInHoverIcon).perform();
 
+
         try {
             WebDriverWait exp= new WebDriverWait(driver, Duration.ofSeconds(3));
             exp.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[class=\"nav-action-signin-button\"]")));
             List<WebElement> SignInIcon= driver.findElements(SignInButton);
             clickButton(SignInIcon.getFirst());
+            Reporter.log(" User direct To Login Page Successfully");
+
+
+
         } catch (TimeoutException e) {
-            System.out.println("Image Element does not exist");
+            System.out.println("The Direction is Failed");
         }
     }
     public void UserLogin(String UserEmail, String UserPassword){
@@ -48,6 +53,7 @@ public class LoginPage extends PageBase{
         setTextElement(PasswordField, UserPassword);
         WebElement signInButt = driver.findElement(signInButton);
         clickButton(signInButt);
+        Reporter.log(" User Login Page  Successfully");
 
     }
 

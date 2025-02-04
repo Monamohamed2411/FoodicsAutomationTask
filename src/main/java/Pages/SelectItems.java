@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 import java.time.Duration;
 
@@ -35,8 +36,10 @@ public class SelectItems extends PageBase{
             WebDriverWait Wait= new WebDriverWait(driver, Duration.ofSeconds(5));
             WebElement SelectAllVideoIcon= Wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.hmenu-item[href*='node=18022560031']")));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", SelectAllVideoIcon);
+            Reporter.log(" User Select Video Successfully");
         }catch (TimeoutException e){
             System.out.println("not found");
+            Reporter.log(" The Video didn't exist");
         }
 
     }
@@ -44,9 +47,13 @@ public class SelectItems extends PageBase{
     public void SelectFilterInMenu(){
         WebElement SelectFilterSipping = driver.findElement(SelectShippingFilter);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", SelectFilterSipping);
+        Reporter.log(" User Select "+ SelectFilterSipping.getText() + " Filter");
 
         WebElement SelectNewCondition =driver.findElement(SelectNew);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", SelectNewCondition);
+        Reporter.log(" User Select "+ SelectNewCondition.getText() + " Filter");
+
+
     }
 
 
@@ -56,6 +63,8 @@ public class SelectItems extends PageBase{
 
         WebElement SelectHighOption = driver.findElement(SelectHigh);
         SelectHighOption.click();
+        Reporter.log(" User Sort data By "+ SelectHighOption.getText());
+
 
 
     }
