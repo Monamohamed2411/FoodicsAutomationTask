@@ -25,7 +25,9 @@ public class TestBase {
 
 		if (browserName.equalsIgnoreCase("chrome")) {
 			ChromeOptions chromeOptions = new ChromeOptions();
-
+			chromeOptions.addArguments("--headless=new");
+			chromeOptions.addArguments("--no-sandbox");
+			chromeOptions.addArguments("--disable-dev-shm-usage");
 
 			 driver = new ChromeDriver(chromeOptions);
 		}
