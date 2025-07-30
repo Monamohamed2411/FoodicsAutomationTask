@@ -11,7 +11,7 @@ public class TC01_Login extends TestBase {
         LoginDate=new LoginPage(driver);
         LoginDate.NavigateToLogin();
 
-        LoginDate.UserLogin("monamohamed682024@gmail.com",  "123456");
+        LoginDate.UserLogin("01223726424",  "123456");
 
     }
 }
