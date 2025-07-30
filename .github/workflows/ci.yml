@@ -23,8 +23,8 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
-      - name: Run ONLY TC01_Login test
-        run: mvn -Dtest=Test.TC01_Login test
+      - name: Run TestNG tests
+        run: mvn test
 
       - name: Upload Surefire Reports if tests fail
         if: failure()

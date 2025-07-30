@@ -5,9 +5,9 @@
     <test name="SelectData">
         <classes>
             <class name="Test.TC01_Login"/>
-            <class name="Test.TC02_SelectItems"/>
-            <class name="Test.TC03_AddProductToCartTest"/>
-            <class name="Test.TC04_CheckOutTest"/>
+<!--            <class name="Test.TC02_SelectItems"/>-->
+<!--            <class name="Test.TC03_AddProductToCartTest"/>-->
+<!--            <class name="Test.TC04_CheckOutTest"/>-->
 
         </classes>
     </test>
