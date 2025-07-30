@@ -1,14 +1,27 @@
-name: My First CI
+name: Run TestNG Tests
 
 on:
   push:
     branches: [ master ]
+  pull_request:
+      branches: [ main ]
 
 jobs:
-  say-hello:
+  run-tests:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
-      - name: Say Hello
-        run: echo "🎉 Hello from CI/CD!"
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Run TestNG tests
+        run: mvn test
